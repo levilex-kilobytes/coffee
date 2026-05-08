@@ -40,7 +40,6 @@ h1 {
   border-radius: 50%;
 }
 
-/* PAGE LAYOUT */
 .page {
   display: grid;
   row-gap: 30px;
@@ -56,8 +55,7 @@ h1 {
 
 .order,
 .payment__name,
-.payment__card,
-.summary {
+.payment__card {
   background-color: #eee1d5;
   border-radius: 5px;
   box-shadow: 0 1px 3px rgb(0 0 0 / 0.2);
@@ -177,17 +175,17 @@ h1 {
   justify-content: center;
 }
 
-.summary__table {
+.totals__table {
   width: 100%;
   max-width: 500px;
   margin-bottom: 20px;
   border-collapse: collapse;
 }
 
-.summary__row td {
+.table__row td {
   padding: 4px 8px;
 }
-.summary__row td:last-child {
+.table__row td:last-child {
   text-align: right;
 }
 
@@ -196,7 +194,7 @@ h1 {
   padding-top: 8px;
 }
 
-.summary__button {
+.checkout__button {
   background-color: #deb993;
   border: none;
   padding: 10px 30px;
