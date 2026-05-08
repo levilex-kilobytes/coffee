@@ -17,13 +17,7 @@ h1 {
   font-weight: bold;
 }
 
-.logo {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-}
-
-.main__nav {
+.head {
   background-color: #43281c;
   color: #fbf2c0;
   font-size: 16px;
@@ -33,13 +27,20 @@ h1 {
   padding: 10px 20px;
 }
 
-.brand {
+.head__brand {
   display: flex;
   align-items: center;
   gap: 10px;
   color: #fbf2c0;
 }
 
+.nav__logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* PAGE LAYOUT */
 .page {
   display: grid;
   row-gap: 30px;
@@ -49,11 +50,14 @@ h1 {
   margin: 0 auto;
   grid-template-areas:
     "order payment"
-    "total total";
+    "summary summary";
   grid-template-columns: 1fr 1fr;
 }
 
-.box {
+.order,
+.payment__name,
+.payment__card,
+.summary {
   background-color: #eee1d5;
   border-radius: 5px;
   box-shadow: 0 1px 3px rgb(0 0 0 / 0.2);
@@ -61,51 +65,51 @@ h1 {
   width: 100%;
 }
 
-.box-title {
+.order {
+  grid-area: order;
+}
+
+.order__title {
   color: #885a2d;
   font-weight: normal;
   font-size: 16px;
   margin: 0 0 12px 0;
 }
 
-.order {
-  grid-area: order;
-}
-
-.items {
+.order__list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.item {
+.order__item {
   border-bottom: 2px solid #ddb892;
   display: grid;
   padding: 10px 0;
   grid-template-columns: 1fr 8fr 1fr;
   grid-template-areas:
-    "quantity title price"
+    "quantity name price"
     "quantity options price";
   row-gap: 8px;
 }
-.item:last-child {
+.order__item:last-child {
   border-bottom: none;
 }
 
-.item-quantity {
+.order__item-quantity {
   grid-area: quantity;
 }
-.item-title {
-  grid-area: title;
+.order__item-name {
+  grid-area: name;
   font-weight: bold;
 }
-.item-price {
+.order__item-price {
   grid-area: price;
   font-weight: bold;
   text-align: right;
 }
 
-.item-options-list {
+.order__item-options {
   grid-area: options;
   color: #b08968;
   list-style: none;
@@ -120,20 +124,28 @@ h1 {
 .payment {
   grid-area: payment;
 }
-.name-box {
+
+.payment__name {
   margin-bottom: 20px;
 }
 
-.input-group {
+.payment__title {
+  color: #885a2d;
+  font-weight: normal;
+  font-size: 16px;
+  margin: 0 0 12px 0;
+}
+
+.payment__field {
   position: relative;
   margin-bottom: 16px;
   font-size: 12px;
 }
-.input-group:last-child {
+.payment__field:last-child {
   margin-bottom: 0;
 }
 
-.user-input-label {
+.payment__label {
   color: #885a2d;
   background-color: #eee1d5;
   font-size: 11px;
@@ -143,7 +155,7 @@ h1 {
   padding: 0 2px;
 }
 
-.user-input {
+.payment__input {
   background-color: transparent;
   border: 2px #885a2d solid;
   padding: 8px;
@@ -153,39 +165,38 @@ h1 {
   font-size: 18px;
 }
 
-.short-input {
+.payment__input--short {
   max-width: 160px;
 }
 
-.total {
-  grid-area: total;
+.summary {
+  grid-area: summary;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.totals-table {
+.summary__table {
   width: 100%;
   max-width: 500px;
   margin-bottom: 20px;
   border-collapse: collapse;
 }
 
-.totals-table td {
+.summary__row td {
   padding: 4px 8px;
 }
-.totals-table td:last-child {
+.summary__row td:last-child {
   text-align: right;
 }
 
-.final-totals td {
+.summary__row--total td {
   font-weight: bold;
-  /* border-top: 2px solid #ddb892; */
   padding-top: 8px;
 }
 
-.checkout {
+.summary__button {
   background-color: #deb993;
   border: none;
   padding: 10px 30px;
